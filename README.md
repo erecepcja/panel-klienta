@@ -13,7 +13,7 @@ Jesteś zainteresowany wprowadzeniem na swoją stronę rezerwacji on-line? Poni�
 Co będzie potrzebne do implementacji na naszej stronie kodu? Będziemy potrzebowali
 - odpowiedniej grafiki
 - serwera z interpreterem PHP 5.x z obsugą SOAP
-- konta specjanlego użytkownika z systemu eRecepcja (dane jakie powinniśmy otrzymać: login, hasło, specjalny adres url)
+- specjalnego konta użytkownika z systemu eRecepcja (dane jakie powinniśmy otrzymać: login, hasło, specjalny adres url)
 
 3. Pierwsze kroki w implementacji
 ---
@@ -23,7 +23,7 @@ Co będzie potrzebne do implementacji na naszej stronie kodu? Będziemy potrzebo
 ---
 ...
 
-5. Lista funcji i krótki opis
+5. Lista funkcji i krótki opis
 ---
 ...
 
