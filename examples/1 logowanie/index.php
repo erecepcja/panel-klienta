@@ -1,13 +1,22 @@
 <?php
-session_start();
 
-try {
-    $x = new SoapClient("plik.wsdl", array('soap_version'   => SOAP_1_2));  
-	var_dump($x->zmienSesje('a','e'));
-	var_dump($x->pobierzSesje('a'));
-	$wynik = $x->zaloguj('znanylekarz', 'znanylekarz123');
-	var_dump($wynik);
-} catch (Exception $e) {  
-	var_dump($e);
-    echo $e->getMessage(); 
+// wpisz poniżej dane, które otrzymałeś od systemu eRecepcja
+
+$url = 'http://medyczna1.erecepcjaeu/soap?wsdl';
+$login = 'soapowscy';
+$haslo = 'soapowscy';
+
+try 
+{
+    $soap = new SoapClient("plik.wsdl", array('soap_version'   => SOAP_1_2));  
+	$wynik = $soap->zaloguj($login, $haslo);
+	if( $wynik )
+	{
+		echo 'Sukces! Logowanie się powiodło!';
+	} else
+	{
+		echo 'Błąd logowania, sprawdź poprawność loginu lub hasła.';
+	}
+} catch (Exception $e) {
+   echo 'Mamy problem: '.$e->getMessage(); 
 } 
