@@ -1,0 +1,167 @@
+
+<!-- saved from url=(0035)#json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+<title>DoSoap interface description</title>
+<style type="text/css" media="all">
+body{font-family:Calibri,Arial;background-color:#fefefe;}
+.pre{font-family:Courier;}
+.normal{font-family:Calibri,Arial;}
+.bold{font-weight:bold;}
+h1,h2,h3{font-family:Verdana,Times;}
+h1{border-bottom:1px solid gray;}
+h2{border-bottom:1px solid silver;}
+h3{border-bottom:1px dashed silver;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+.blue{color:#3400FF;}
+.lightBlue{color:#5491AF;}
+</style>
+<style type="text/css" media="print">
+.noprint{display:none;}
+</style>
+<style type="text/css"></style></head>
+<body>
+<h1>DoSoap SOAP WebService interface description</h1>
+<p>Endpoint URI: <span class="pre">index.php</span></p>
+<p>WSDL URI: <span class="pre"><a href="index.php?WSDL&readable">index.php?WSDL</a></span></p>
+<p>PHP SOAP client download URI: <span class="pre"><a href="index.php?PHPSOAPCLIENT">index.php?PHPSOAPCLIENT</a></span></p>
+<div class="noprint">
+<h2>Index</h2>
+<p>Public methods:</p>
+<ul>
+<li><a href="#autoryzacjaKlienta"><span class="pre">autoryzacjaKlienta</span></a></li>
+<li><a href="#kodAutoryzacyjnyKlienta"><span class="pre">kodAutoryzacyjnyKlienta</span></a></li>
+<li><a href="#odwolajRezerwacje"><span class="pre">odwolajRezerwacje</span></a></li>
+<li><a href="#pobierzListeRezerwacjiStanowiska"><span class="pre">pobierzListeRezerwacjiStanowiska</span></a></li>
+<li><a href="#pobierzListeTerminow"><span class="pre">pobierzListeTerminow</span></a></li>
+<li><a href="#pobierzListeUslugStanowiska"><span class="pre">pobierzListeUslugStanowiska</span></a></li>
+<li><a href="#pobierzStuktureStanowisk"><span class="pre">pobierzStuktureStanowisk</span></a></li>
+<li><a href="#zaloguj"><span class="pre">zaloguj</span></a></li>
+<li><a href="#zalogujPrzezSid"><span class="pre">zalogujPrzezSid</span></a></li>
+<li><a href="#zapiszKlientaNaTermin"><span class="pre">zapiszKlientaNaTermin</span></a></li>
+</ul>
+</div>
+<h2>Public methods</h2>
+<h3>autoryzacjaKlienta</h3>
+<a name="autoryzacjaKlienta"></a>
+<p class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a> <span class="bold">autoryzacjaKlienta</span> (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">telefonKlienta</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">imieKlienta</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">nazwiskoKlienta</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">peselKlienta</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">emailKlienta</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">int</span> <span class="bold">wymaganyKodSms</span><br>
+)</p>
+<p></p>
+<ul>
+<li class="pre"><span class="blue">string</span> <span class="bold">imieKlienta</span><br><span class="normal">nie jest wymagany</span></li>
+<li class="pre"><span class="blue">string</span> <span class="bold">nazwiskoKlienta</span><br><span class="normal">nie jest wymagany</span></li>
+<li class="pre"><span class="blue">string</span> <span class="bold">peselKlienta</span><br><span class="normal">nie jest wymagany</span></li>
+<li class="pre"><span class="blue">string</span> <span class="bold">emailKlienta</span><br><span class="normal">nie jest wymagany</span></li>
+<li class="pre"><span class="blue">int</span> <span class="bold">wymaganyKodSms</span><br><span class="normal">nie jest wymagany, domyslnie przyjmuje wartosc 0</span></li>
+</ul>
+<p>Return value <span class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a></span>: kod wyniku</p>
+<h3>kodAutoryzacyjnyKlienta</h3>
+<a name="kodAutoryzacyjnyKlienta"></a>
+<p class="pre"><span class="blue">boolean</span> <span class="bold">kodAutoryzacyjnyKlienta</span> (
+<span class="blue">string</span> <span class="bold">kod</span>
+)</p>
+<p>Metoda sprawdza czy podany kod jest prawidlowym kodem weryfikacyjnym klienta,<br>
+wyslanym na jego numer komorkowy. Jesli tak, to skrypt autoryzuje go i sa mozliwe<br>
+dalsze operacje (np. rezerwacja na wizyte).</p>
+<p>Return value <span class="pre"><span class="blue">boolean</span></span>: udalo sie?</p>
+<h3>odwolajRezerwacje</h3>
+<a name="odwolajRezerwacje"></a>
+<p class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a> <span class="bold">odwolajRezerwacje</span> (
+<span class="blue">int</span> <span class="bold">id</span>
+)</p>
+<p></p>
+<p>Return value <span class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a></span>: kod powodzenia</p>
+<h3>pobierzListeRezerwacjiStanowiska</h3>
+<a name="pobierzListeRezerwacjiStanowiska"></a>
+<p class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a> <span class="bold">pobierzListeRezerwacjiStanowiska</span> (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">int</span> <span class="bold">idStanowiska</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">date</span><br>
+)</p>
+<p>Metoda pobiera liste rezerwacji z wskazanego stanowiska o podanej dacie.</p>
+<ul>
+<li class="pre"><span class="blue">int</span> <span class="bold">idStanowiska</span><br><span class="normal">id wskazanego stanowiska</span></li>
+<li class="pre"><span class="blue">string</span> <span class="bold">date</span><br><span class="normal">w formacie 'YYYY-MM-DD'</span></li>
+</ul>
+<h3>pobierzListeTerminow</h3>
+<a name="pobierzListeTerminow"></a>
+<p class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a> <span class="bold">pobierzListeTerminow</span> (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">int</span> <span class="bold">idStanowiska</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">int</span> <span class="bold">idUslugi</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">odDaty</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">int</span> <span class="bold">iloscDni</span><br>
+)</p>
+<p>Metoda zwraca liste mozliwych terminow do zapisania klienta do wskazanego<br>
+stanowiska na wybrana usluge.</p>
+<ul>
+<li class="pre"><span class="blue">int</span> <span class="bold">idStanowiska</span><br><span class="normal">id stanowiska z ktorego chcemy pobrac liste wolnych terminow</span></li>
+<li class="pre"><span class="blue">int</span> <span class="bold">idUslugi</span><br><span class="normal">id uslugi na ktora chcemy umowic klienta</span></li>
+<li class="pre"><span class="blue">string</span> <span class="bold">odDaty</span><br><span class="normal">= 'now' od jakiej daty skrypt ma zaczac szukac?</span></li>
+<li class="pre"><span class="blue">int</span> <span class="bold">iloscDni</span><br><span class="normal">= 30 przez ile dni ma szukac wolnych terminow</span></li>
+</ul>
+<p>Return value <span class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a></span>: wolne terminy</p>
+<h3>pobierzListeUslugStanowiska</h3>
+<a name="pobierzListeUslugStanowiska"></a>
+<p class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a> <span class="bold">pobierzListeUslugStanowiska</span> (
+<span class="blue">int</span> <span class="bold">idStanowiska</span>
+)</p>
+<p>Metoda pobiera liste uslug wykonywane przez wskazane stanowisko</p>
+<h3>pobierzStuktureStanowisk</h3>
+<a name="pobierzStuktureStanowisk"></a>
+<p class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a> <span class="bold">pobierzStuktureStanowisk</span> (
+<span class="blue">int</span> <span class="bold">id</span>
+)</p>
+<p></p>
+<ul>
+<li class="pre"><span class="blue">int</span> <span class="bold">id</span><br><span class="normal">id stanowiska od ktorego chcemy zaczac pobieranie struktury</span></li>
+</ul>
+<p>Return value <span class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a></span>: struktura stanowisk</p>
+<h3>zaloguj</h3>
+<a name="zaloguj"></a>
+<p class="pre"><span class="blue">string</span> <span class="bold">zaloguj</span> (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">login</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">haslo</span><br>
+)</p>
+<p>Metoda sprawdza zgodnosc loginu oraz hasla z tymi w bazie danych. Jesli<br>
+podane dane sa prawidlowe, to uzytkownik zostaje zalogowany, a metoda<br>
+zwraca ciag znakowy oznaczajacy indentyfikator sesyjny.</p>
+<ul>
+<li class="pre"><span class="blue">string</span> <span class="bold">login</span><br><span class="normal">The method name</span></li>
+<li class="pre"><span class="blue">string</span> <span class="bold">haslo</span><br><span class="normal">The parameters</span></li>
+</ul>
+<p>Return value <span class="pre"><span class="blue">string</span></span>: zwraca id sesji</p>
+<h3>zalogujPrzezSid</h3>
+<a name="zalogujPrzezSid"></a>
+<p class="pre"><span class="blue">boolean</span> <span class="bold">zalogujPrzezSid</span> (
+<span class="blue">string</span> <span class="bold">sid</span>
+)</p>
+<p>Metoda przyjmuje za parametr indentyfikatory sesyjny zwrocony przez metode zaloguj().<br>
+Uzywanie jej jest wskazane, poniewaz gwarantuje wznowienie dzialania zmiennych<br>
+sesyjnych pozostalych z poprzedniego logowania (np. wczytuje autoryzowanego klienta).</p>
+<ul>
+<li class="pre"><span class="blue">string</span> <span class="bold">sid</span><br><span class="normal">session id</span></li>
+</ul>
+<p>Return value <span class="pre"><span class="blue">boolean</span></span>: powiodlo sie lub nie</p>
+<h3>zapiszKlientaNaTermin</h3>
+<a name="zapiszKlientaNaTermin"></a>
+<p class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a> <span class="bold">zapiszKlientaNaTermin</span> (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">int</span> <span class="bold">idStanowiska</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">int</span> <span class="bold">idUslugi</span>, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">string</span> <span class="bold">dateTime</span><br>
+)</p>
+<p></p>
+<ul>
+<li class="pre"><span class="blue">int</span> <span class="bold">idStanowiska</span><br><span class="normal">id stanowiska do ktorego chcemy zapisac klienta</span></li>
+<li class="pre"><span class="blue">int</span> <span class="bold">idUslugi</span><br><span class="normal">id uslugi na ktora chcemy zapisac klienta</span></li>
+<li class="pre"><span class="blue">string</span> <span class="bold">dateTime</span><br><span class="normal">data w formacie 'YYYY-MM-DD hh:mm:ss'</span></li>
+</ul>
+<p>Return value <span class="pre"><a href="./DoSoap interface description_files/DoSoap interface description.htm"><span class="lightBlue">json</span></a></span>: kod powodzenia 0 - powiodlo sie, &gt; 0 - cos poszlo nie tak</p>
+<hr>
+<p><small>Powered by <a href="http://code.google.com/p/php-wsdl-creator/">PhpWsdl</a><span class="noprint"> - PDF download: <a href="http://online.htmltopdf.de/?plain=1&filename=DoSoap-webservices.pdf&print=1">Download this page as PDF</a></span></small></p>
+
+</body></html>
