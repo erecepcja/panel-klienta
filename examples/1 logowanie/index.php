@@ -2,13 +2,13 @@
 
 // wpisz poniżej dane, które otrzymałeś od systemu eRecepcja
 
-$url = 'http://medyczna1.erecepcjaeu/soap?wsdl';
+$url = 'http://medyczna1.erecepcja.eu/soap';
 $login = 'soapowscy';
 $haslo = 'soapowscy';
 
 try 
 {
-    $soap = new SoapClient("plik.wsdl", array('soap_version'   => SOAP_1_2));  
+    $soap = new SoapClient($url.'-wsdl', array('soap_version'   => SOAP_1_2));  
 	$wynik = $soap->zaloguj($login, $haslo);
 	if( $wynik )
 	{
@@ -17,6 +17,7 @@ try
 	{
 		echo 'Błąd logowania, sprawdź poprawność loginu lub hasła.';
 	}
+	
 } catch (Exception $e) {
    echo 'Mamy problem: '.$e->getMessage(); 
 } 

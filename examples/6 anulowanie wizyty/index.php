@@ -8,16 +8,17 @@ $haslo = 'soapowscy';
 
 session_start();
 
-$soap = new SoapClient('plik.wsdl', array('soap_version'   => SOAP_1_2)); 
+$soap = new SoapClient($url.'-wsdl', array('soap_version'   => SOAP_1_2)); 
 
 if( !isset($_SESSION['soap']['sid']) )
 {
 	$_SESSION['soap']['sid'] = $soap->zaloguj('soapowscy','soapowscy');
 } else
 {
-	$zal = $soap->zalogujPrzezSid($_SESSION['soap']['sid']);
-	if( !$zal )
+	if( $soap->zalogujPrzezSid($_SESSION['soap']['sid']) )
+	{
 		$_SESSION['soap']['sid'] = $soap->zaloguj('soapowscy','soapowscy');
+	}
 }
 
 $wynikJson = $soap->odwolajRezerwacje(
