@@ -31,7 +31,7 @@ Najprostsze logowanie przez web serwisy można zrobić za pomocą kodu:
 gdzie zmienne url, login oraz haslo są danymi konta użytkownika z serwisu eRecepcja. Ten sposób logowania jest dobry dla funkcji API, które nie muszą korzystać z pamięci podręcznej serwera.
 
 Sposób dzięki któremu będziemy mogli korzystać ze wszystkich funkcji:
-
+```php
     session_start();
 
     $soap = new SoapClient($url.'-wsdl', array('soap_version'   => SOAP_1_2)); 
@@ -45,7 +45,7 @@ Sposób dzięki któremu będziemy mogli korzystać ze wszystkich funkcji:
             $_SESSION['soap']['sid'] = $soap->zaloguj('soapowscy','soapowscy');
         }
     }
-
+```
 Na samym początku musimy zastartować zmienne sesyjne, aby przetrzymać session id. Session id posłuży nam do wznawiania pamięci podręcznej po stronie serwera API. Jeśli zalogowanie przez tą zmienną nie powiedzie się, to ponownie się logujemy. Może tak się zdarzyć, że za dużo czasu upłynie od ostatniej akcji po stronie serwera i zmienne podręczne wymagają odnowienia.
 
 Aby mieć większą kontrolę nad wyrzucanymi wyjątkami przez protokół SOAP, można zaopatrzyć powyższą sekcję kodu w instrukcje `try` / `catch`:
