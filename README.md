@@ -6,7 +6,7 @@ WebServices SOAP do obsługi panelu klienta eRecepcji.
 1. Początek początków
 ----------------------------
 
-Jesteś zainteresowany wprowadzeniem na swoją stronę rezerwacji on-line? Poniżej znajdziesz instrukcje jak to zrobić razem z systemem eRecepcja.pl. Impelementacja naszego API jest prosta i przejrzysta.
+Jesteś zainteresowany wprowadzeniem na swoją stronę rezerwacji on-line? Poniżej znajdziesz instrukcje jak to zrobić razem z systemem eRecepcja.pl. Implementacja naszego API jest prosta i przejrzysta.
 
 2. Wymagania
 ---
@@ -28,7 +28,7 @@ Najprostsze logowanie przez web serwisy można zrobić za pomocą kodu:
     {
         echo 'Błąd logowania, sprawdź poprawność loginu lub hasła.';
     }
-gdzie zmienne url, login oraz haslo są danymi konta użytkownika z serwisu eRecepcja. Ten sposób logowania jest dobry dla funkcji API, które nie muszą kożystać z pamięci podręcznej serwera.
+gdzie zmienne url, login oraz haslo są danymi konta użytkownika z serwisu eRecepcja. Ten sposób logowania jest dobry dla funkcji API, które nie muszą korzystać z pamięci podręcznej serwera.
 
 Sposób dzięki któremu będziemy mogli kożystać ze wszystkich funkcji:
 
@@ -46,9 +46,25 @@ Sposób dzięki któremu będziemy mogli kożystać ze wszystkich funkcji:
         }
     }
 
+Na samym początku musimy zastartować zmienne sesyjne, aby przetrzymać session id. Session id posłuży nam do wznawiania pamięci podręcznej po stronie serwera API. Jeśli zalogowanie przez tą zmienną nie powiedzie się, to ponownie się logujemy. Może tak się zdarzyć, że za dużo czasu upłynie od ostatniej akcji po stronie serwera i zmienne podręczne wymagają odnowienia.
 
+4. Zapisanie na wizytę
+---
+
+
+
+5. Wyniki działania funkcji
+---
+
+Funkcje API, poza tymi odpowiedzialnymi za logowanie, zwracają ciąg tekstowy w formacie JSON. Po jego zdekodowaniu funkcją `json_decode()` otrzymujemy wynikowy obiekt. Możliwe parametry wynikowe to kod oraz wiadomość.
+
+### kod 
+- Jeśli jest równy 0, to oznacza poprawne wykonie funkcji
+- Jeśli jest większy od 0, to oznacza nieprawidłowe działanie
+
+### wiadomosc
+Jak sama nazwa wskazuje, parametr ten wskazuje informacje do operacji jaka była wykonana. W przypadku błędu, będzie przechowywać dane jaki błąd wystąpił.
 
 6. Przykłady
 ---
 Przykładowe próbki doków są dostępne w folderze examples/
-
