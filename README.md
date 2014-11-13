@@ -68,7 +68,7 @@ try
 ---
 
 ```php
-$wynik = json_decode($soap->autoryzacjaKlienta('500-000-000', '', '', '49040501580','', 0));
+$wynik = json_decode($soap->autoryzacjaKlienta('500-000-000', 'Jan', 'Kowalski', '49040501580','', 0));
 if( $wynikAutoryzajci->kod == '0')
 {
     $wynikJson = $soap->zapiszKlientaNaTermin(
