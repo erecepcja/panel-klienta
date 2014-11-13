@@ -92,7 +92,7 @@ Funkcje API (poza tymi odpowiedzialnymi za logowanie) zwracają ciąg tekstowy w
 - Jeśli jest większy od 0, to oznacza nieprawidłowe działanie
 
 ### wiadomosc
-Jak sama nazwa wskazuje, parametr ten wskazuje informacje do operacji jaka była wykonana. W przypadku błędu, będzie przechowywać dane jaki błąd wystąpił.
+Jak sama nazwa wskazuje, parametr ten wskazuje informacje do operacji jaka była wykonana. W przypadku błędu, będzie przechowywać dane jaki wystąpił.
 
 6. Przykłady
 ---
