@@ -12,7 +12,7 @@ Jesteś zainteresowany wprowadzeniem na swoją stronę rezerwacji on-line? Poni�
 ---
 Co będzie potrzebne do implementacji na naszej stronie kodu? Będziemy potrzebowali
 - odpowiedniej grafiki
-- serwera z interpreterem PHP 5.x z obsugą SOAP
+- serwera z interpreterem PHP 5.x z obsługą SOAP
 - specjalnego konta użytkownika z systemu eRecepcja (dane jakie powinniśmy otrzymać: login, hasło, specjalny adres url)
 
 3. Pierwsze kroki w implementacji
@@ -30,7 +30,7 @@ Najprostsze logowanie przez web serwisy można zrobić za pomocą kodu:
     }
 gdzie zmienne url, login oraz haslo są danymi konta użytkownika z serwisu eRecepcja. Ten sposób logowania jest dobry dla funkcji API, które nie muszą korzystać z pamięci podręcznej serwera.
 
-Sposób dzięki któremu będziemy mogli kożystać ze wszystkich funkcji:
+Sposób dzięki któremu będziemy mogli korzystać ze wszystkich funkcji:
 
     session_start();
 
