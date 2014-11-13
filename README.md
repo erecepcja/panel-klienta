@@ -48,9 +48,31 @@ Sposób dzięki któremu będziemy mogli korzystać ze wszystkich funkcji:
 
 Na samym początku musimy zastartować zmienne sesyjne, aby przetrzymać session id. Session id posłuży nam do wznawiania pamięci podręcznej po stronie serwera API. Jeśli zalogowanie przez tą zmienną nie powiedzie się, to ponownie się logujemy. Może tak się zdarzyć, że za dużo czasu upłynie od ostatniej akcji po stronie serwera i zmienne podręczne wymagają odnowienia.
 
+Aby mieć większą kontrolę nad wyrzucanymi wyjątkami przez protokół SOAP, można zaopatrzyć powyższą sekcję kodu w instrukcje `try` / `catch`:
+
+    try 
+    {
+        // kod z powyższej sekcji
+    
+    } catch (Exception $e) {
+       echo 'Mamy problem: '.$e->getMessage(); 
+    } 
+
 4. Zapisanie na wizytę
 ---
 
+    $wynik = json_decode($soap->autoryzacjaKlienta('500-000-000', '', '', '49040501580','', 0));
+    if( $wynikAutoryzajci->kod == '0')
+    {
+        $wynikJson = $soap->zapiszKlientaNaTermin(
+            68, // id stanowiska z jakiego chcemy (mozemy spr id stanowiska przy pomocy metody pobierzStuktureStanowisk())
+            58, // id uslugi na jaka chcemy zapisac klienta (mozemy spr id stanowiska przy pomocy metody pobierzListeUslugStanowiska(idStanowiska))
+            '2014-10-15 16:07:00' // data na jaka klient ma byc zapisany (mozna ja uzyskac z poprzedniego przykladu nr 4)
+        );
+    } else
+    {
+        echo 'coś poszło nie tak: '.$wynik->wiadomosc;
+    }
 
 
 5. Wyniki działania funkcji
