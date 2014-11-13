@@ -78,7 +78,7 @@ Aby mieć większą kontrolę nad wyrzucanymi wyjątkami przez protokół SOAP, 
 5. Wyniki działania funkcji
 ---
 
-Funkcje API, poza tymi odpowiedzialnymi za logowanie, zwracają ciąg tekstowy w formacie JSON. Po jego zdekodowaniu funkcją `json_decode()` otrzymujemy wynikowy obiekt. Możliwe parametry wynikowe to kod oraz wiadomość.
+Funkcje API (poza tymi odpowiedzialnymi za logowanie) zwracają ciąg tekstowy w formacie JSON. Po jego zdekodowaniu funkcją `json_decode()` otrzymujemy wynikowy obiekt. Możliwe parametry wynikowe to kod oraz wiadomość.
 
 ### kod 
 - Jeśli jest równy 0, to oznacza poprawne wykonie funkcji
@@ -89,4 +89,4 @@ Jak sama nazwa wskazuje, parametr ten wskazuje informacje do operacji jaka była
 
 6. Przykłady
 ---
-Przykładowe próbki doków są dostępne w folderze examples/
+Przykładowe próbki są dostępne w folderze examples/
